@@ -110,8 +110,8 @@ func forwardPort(port int, ip, name string) error {
 	}
 
 	fmt.Printf("Added port forward rule: %s\n", name)
-	fmt.Printf("                     IP: %s", ip)
-	fmt.Printf("                   Port: %s", portStr)
+	fmt.Printf("                     IP: %s\n", ip)
+	fmt.Printf("                   Port: %s\n", portStr)
 
 	return nil
 }
