@@ -40,9 +40,7 @@ func main() {
 			continue
 		}
 
-		// You can store previous IPs if needed to detect new assignments
-		fmt.Printf("🎯 Service %s/%s was assigned IP: %s\n", svc.Namespace, svc.Name, ingress[0].IP)
-
+		fmt.Printf("Service %s/%s was assigned IP: %s\n", svc.Namespace, svc.Name, ingress[0].IP)
 		port := svc.Spec.Ports[0]
 		ip := ingress[0].IP
 		name := svc.Name
@@ -110,6 +108,10 @@ func forwardPort(port int, ip, name string) error {
 	if err != nil {
 		return err
 	}
+
+	fmt.Printf("Added port forward rule: %s\n", name)
+	fmt.Printf("                     IP: %s", ip)
+	fmt.Printf("                   Port: %s", portStr)
 
 	return nil
 }
